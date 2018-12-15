@@ -1,0 +1,5 @@
+#Pseudocode for the User Login subroutine
+
+#BEGIN MAIN PROGRAM
+
+#INIT VARIABLES

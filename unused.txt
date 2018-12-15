@@ -1,0 +1,18 @@
+CLASS database
+  password = ''
+  username = ''
+
+  SUBROUTINE database(password, username)
+    this.password = password
+    this.username = username
+  ENDSUBROUTINE
+
+  SUBROUTINE getDatabase()
+    RETURN database
+  ENDSUBROUTINE
+
+  SUBROUTINE query(query)
+    results = []
+    FOR i <-
+
+ENDCLASS

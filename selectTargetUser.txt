@@ -18,6 +18,8 @@ targetQuery = ''
 
 #BEGIN MAIN ROUTINE
 
+loadDatabase(databaseUsername, databasePassword)
+
 IF tempInput = 'username' THEN   #This will ignore case
   OUTPUT('Enter uername of the user you wish to target: ')
   targetQuery = USERINPUT
@@ -35,32 +37,21 @@ OUTPUT targetedUser   #This will return the data from the query as a map (maps c
 SUBROUTINE getUserFromDatabase(searchQuery)
   map user
   database = getDatabase()
-  user = database.query('username', 'searchQuery')
+  user = database.query('searchQuery')
   RETURN user
 
 ENDSUBROUTINE
 
+SUBROUTINE loadDatabase(user, pass) #This is to load into memory,
+                                     meaning that any changes in the database will not be pulled until finished
+  databaseArray = []
+
+  FOR i <- 1 TO database.size()
+    databaseArray[i] = database[i]
+
+  RETURN databaseArray
+ENDSUBROUTINE
 #END SUBROUTINES
 
-#BEGIN CLASSES
-
-CLASS database
-  password = ''
-  username = ''
-
-  SUBROUTINE database(password, username)
-    this.password = password
-    this.username = username
-  ENDSUBROUTINE
-
-  SUBROUTINE getDatabase()
-    RETURN database
-  ENDSUBROUTINE
-
-  SUBROUTINE query(query)
-    results = []
-    FOR 
-
-ENDCLASS
 
 #END MAIN PROGRAM
