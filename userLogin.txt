@@ -8,6 +8,7 @@
 constant databaseUsername = 'admin' #These are examples
 constant databasePassword = 'admin'
 
+isValid = false
 
 #END INIT VARIABLES
 
@@ -20,9 +21,19 @@ OUTPUT('Enter webpage password')
 password = USERINPUT
 
 FOR i <- 1 to LEN(database)
-  
+
+  IF database[i][i] = username, password THEN
+    isValid = false
+  ELSE
+    isValid = false
+
 ENDFOR
 
+IF isValid THEN
+  OUTPUT('USER VALID')
+ELSE
+  OUTPUT('USER INVALID')
+ENDIF
 #END MAIN PROGRAM
 
 #BEGIN SUBROUTINES
