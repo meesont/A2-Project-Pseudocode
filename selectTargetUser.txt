@@ -1,0 +1,66 @@
+#Pseudocode for the Select Target User Subroutine
+
+#BEGIN MAIN PROGRAM
+
+#INIT VARIABLES
+
+OUTPUT('Enter database username')  #These cannot be redefined after this initial declaration
+constant databaseUsername = USERINPUT
+OUTPUT('Enter database password')
+constant databasePassword = USERINPUT
+
+OUTPUT('Use username or surname?')
+tempInput = USERINPUT
+
+targetQuery = ''
+
+#END INIT VARIABLES
+
+#BEGIN MAIN ROUTINE
+
+IF tempInput = 'username' THEN   #This will ignore case
+  OUTPUT('Enter uername of the user you wish to target: ')
+  targetQuery = USERINPUT
+ELSE
+  OUTPUT('Enter surname of the user you wish to target: ')
+  targetQuery = USERINPUT
+ENDIF
+
+targetedUser = getUserFromDatabase(targetQuery)   #This is returned as a map
+OUTPUT targetedUser   #This will return the data from the query as a map (maps can be accessed)
+
+#END MAIN ROUTINE
+
+#BEGIN SUBROUTINES
+SUBROUTINE getUserFromDatabase(searchQuery)
+  map user
+  database = getDatabase()
+  user = database.query('username', 'searchQuery')
+  RETURN user
+
+ENDSUBROUTINE
+
+#END SUBROUTINES
+
+#BEGIN CLASSES
+
+CLASS database
+  password = ''
+  username = ''
+
+  SUBROUTINE database(password, username)
+    this.password = password
+    this.username = username
+  ENDSUBROUTINE
+
+  SUBROUTINE getDatabase()
+    RETURN database
+  ENDSUBROUTINE
+
+  SUBROUTINE query(query)
+    results = []
+    FOR 
+
+ENDCLASS
+
+#END MAIN PROGRAM
