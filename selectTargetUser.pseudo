@@ -1,0 +1,36 @@
+#Pseudocode for the Select Target User Subroutine
+
+OUTPUT('Use username or surname?')
+tempInput = USERINPUT
+
+databaseUsername = 'admin' #These are examples, not the actual thing. Actual thing will be grabbed from a userinput
+databasePassword = 'admin'
+
+targetQuery = ''
+
+IF tempInput = 'username' THEN
+  username = true
+ELSE
+  username = false
+ENDIF
+
+IF username = true THEN
+  OUTPUT('Enter uername of the user you wish to target: ')
+  targetQuery = USERINPUT
+ELSE IF username = false THEN
+  OUTPUT('Enter surname of the user you wish to target: ')
+  targetQuery = USERINPUT
+ENDIF
+
+SUBROUTINE getUserFromDatabase(searchQuery)
+  user = []
+
+  database = getDatabase()
+
+  user = database.query('username', 'searchQuery')
+  RETURN user
+
+ENDSUBROUTINE
+
+
+TODO - figure out databasing in pseudocode
