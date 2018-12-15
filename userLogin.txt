@@ -2,4 +2,40 @@
 
 #BEGIN MAIN PROGRAM
 
-#INIT VARIABLES
+#BEGIN INIT VARIABLES
+
+#Database usernames
+constant databaseUsername = 'admin' #These are examples
+constant databasePassword = 'admin'
+
+
+#END INIT VARIABLES
+
+database = loadDatabase(databaseUsername, databasePassword)
+
+OUTPUT('Enter webpage username: ')
+username = USERINPUT
+
+OUTPUT('Enter webpage password')
+password = USERINPUT
+
+FOR i <- 1 to LEN(database)
+  
+ENDFOR
+
+#END MAIN PROGRAM
+
+#BEGIN SUBROUTINES
+
+SUBROUTINE loadDatabase(user, pass) #This is to load into memory,
+                                     meaning that any changes in the database will not be pulled until finished
+  databaseArray = []
+
+  FOR i <- 1 TO database.size()
+    databaseArray[i] = database[i]
+
+  RETURN databaseArray
+ENDSUBROUTINE
+
+
+#END SUBROUTINES

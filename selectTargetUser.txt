@@ -2,12 +2,11 @@
 
 #BEGIN MAIN PROGRAM
 
-#INIT VARIABLES
+#BEGIN INIT VARIABLES
 
-OUTPUT('Enter database username')  #These cannot be redefined after this initial declaration
-constant databaseUsername = USERINPUT
-OUTPUT('Enter database password')
-constant databasePassword = USERINPUT
+#Database usernames
+constant databaseUsername = 'admin' #These are examples
+constant databasePassword = 'admin'
 
 OUTPUT('Use username or surname?')
 tempInput = USERINPUT
@@ -18,7 +17,7 @@ targetQuery = ''
 
 #BEGIN MAIN ROUTINE
 
-loadDatabase(databaseUsername, databasePassword)
+database = loadDatabase(databaseUsername, databasePassword)
 
 IF tempInput = 'username' THEN   #This will ignore case
   OUTPUT('Enter uername of the user you wish to target: ')
