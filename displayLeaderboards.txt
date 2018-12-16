@@ -1,0 +1,21 @@
+#Pseudocode for the Display Leaderboards subroutine
+
+#BEGIN MAIN PROGRAM
+
+#BEGIN INIT VARIABLES
+constant databaseUsername = 'admin' #These are examples
+constant databasePassword = 'admin'
+
+#END INIT VARIABLES
+
+database = loadDatabase(databaseUsername, databasePassword)
+
+
+
+#END MAIN PROGRAM
+
+#BEGIN SUBROUTINES
+
+SUBROUTINE getCurrentLeaderboards()
+  
+ENDSUBROUTINE
