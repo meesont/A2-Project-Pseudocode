@@ -13,7 +13,6 @@ database = loadDatabase(databaseUsername, databasePassword, leaderboardsTbl)
 
 #END INIT VARIABLES
 
-leaderBoard = []
 
 FOR i <- 1 to database.size()
   houseScores[i] = database[i]
@@ -30,6 +29,12 @@ FOR i <- 1 TO LEN(houseScores)
 
   ENDFOR
 ENDFOR
+
+num = 1
+
+WHILE num < LEN(houseScores)
+  OUTPUT(houseScores[num])
+ENDWHILE
 
 #END MAIN PROGRAM
 
