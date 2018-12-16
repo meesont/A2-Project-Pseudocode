@@ -5,17 +5,44 @@
 #BEGIN INIT VARIABLES
 constant databaseUsername = 'admin' #These are examples
 constant databasePassword = 'admin'
+constant databaseTable = 'leaderboardsTbl'
+
+houseScores = []
+
+database = loadDatabase(databaseUsername, databasePassword, leaderboardsTbl)
 
 #END INIT VARIABLES
 
-database = loadDatabase(databaseUsername, databasePassword)
+leaderBoard = []
 
+FOR i <- 1 to database.size()
+  houseScores[i] = database[i]
+ENDFOR
 
+FOR i <- 1 TO LEN(houseScores)
+  FOR j <- (i + 1) TO LEN(houseScores)
+
+  IF houseScores[i] > houseScores[j] THEN
+
+    houseScores[i], houseScores[j] = houseScores[j], houseScores[i]
+
+  ENDIF
+
+  ENDFOR
+ENDFOR
 
 #END MAIN PROGRAM
 
 #BEGIN SUBROUTINES
 
-SUBROUTINE getCurrentLeaderboards()
-  
+SUBROUTINE loadDatabase(user, pass, tbl) #This is to load into memory,
+                                     meaning that any changes in the database will not be pulled until finished
+  databaseArray = []
+
+  FOR i <- 1 TO database.tbl.size() THEN
+    databaseArray[i] = database[i]
+
+  RETURN databaseArray
 ENDSUBROUTINE
+
+#END SUBROUTINES
