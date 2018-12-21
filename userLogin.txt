@@ -13,7 +13,7 @@ isValid = false
 
 #END INIT VARIABLES
 
-database = loadDatabase(databaseUsername, databasePassword)
+database = loadDatabase(databaseUsername, databasePassword, databaseTable)
 
 OUTPUT('Enter webpage username: ')
 username = USERINPUT

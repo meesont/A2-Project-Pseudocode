@@ -17,7 +17,7 @@ targetQuery = ''
 #END INIT VARIABLES
 
 
-database = loadDatabase(databaseUsername, databasePassword)
+database = loadDatabase(databaseUsername, databasePassword, databaseTable)
 
 IF tempInput = 'username' THEN   #This will ignore case
   OUTPUT('Enter uername of the user you wish to target: ')
