@@ -1,0 +1,70 @@
+#Pseudocode for the Manage Scores subroutine
+
+#BEGIN MAIN PROGRAM
+
+#BEGIN INIT VARIABLES
+
+constant databaseUsername = 'admin' #These are examples
+constant databasePassword = 'admin'
+constant databaseTable = 'scoresTbl'
+
+database = loadDatabase(databaseUsername, databasePassword, databaseTable)
+
+#END INIT VARIABLES
+
+recentScores = getMostRecentScores()
+
+OUTPUT('Do you wish to change current scores or organise current scores? (Enter 'C' for change, enter 'O' for organise): ')
+choice = USERINPUT
+
+IF choice = 'C' THEN
+
+  scores = []
+
+  FOR i <- 1 TO 4
+    OUTPUT('Manually enter the score of the first house: ')
+    scores[i] = USERINPUT
+  ENDFOR
+
+
+ELSE IF choice = 'O' THEN
+
+ENDIF
+
+#BEGIN SUBROUTINES
+
+SUBROUTINE loadDatabase(user, pass, tbl)
+
+  databaseArray = []
+
+  FOR i <- 1 TO DATABASE.tbl.size() THEN
+    databaseArray[i] = database[i]
+  ENDFOR
+
+ENDSUBROUTINE
+
+SUBROUTINE getMostRecentScores()
+
+  recentScores = []
+
+  FOR i <- 1 to database.size()
+    recentScores[i] = database[i]
+  ENDFOR
+
+  FOR i <- 1 TO LEN(recentScores)
+    FOR j <- (i + 1) TO LEN(recentScores)
+
+    IF recentScores[i] > recentScores[j] THEN
+
+      recentScores[i], recentScores[j] = recentScores[j], recentScores[i]
+
+    ENDIF
+
+    ENDFOR
+  ENDFOR
+
+  RETURN recentScores
+
+ENDSUBROUTINE
+
+#END SUBROUTINES

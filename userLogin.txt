@@ -7,6 +7,7 @@
 #Database usernames
 constant databaseUsername = 'admin' #These are examples
 constant databasePassword = 'admin'
+constant databaseTable = 'userTbl'
 
 isValid = false
 
@@ -34,15 +35,17 @@ IF isValid THEN
 ELSE
   OUTPUT('USER INVALID')
 ENDIF
+
+
 #END MAIN PROGRAM
 
 #BEGIN SUBROUTINES
 
-SUBROUTINE loadDatabase(user, pass) #This is to load into memory,
+SUBROUTINE loadDatabase(user, pass, tbl) #This is to load into memory,
                                      meaning that any changes in the database will not be pulled until finished
   databaseArray = []
 
-  FOR i <- 1 TO database.size()
+  FOR i <- 1 TO DATABASE.tbl.size() THEN
     databaseArray[i] = database[i]
 
   RETURN databaseArray

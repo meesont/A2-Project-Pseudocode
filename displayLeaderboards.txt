@@ -44,7 +44,7 @@ SUBROUTINE loadDatabase(user, pass, tbl) #This is to load into memory,
                                      meaning that any changes in the database will not be pulled until finished
   databaseArray = []
 
-  FOR i <- 1 TO database.tbl.size() THEN
+  FOR i <- 1 TO DATABASE.tbl.size() THEN
     databaseArray[i] = database[i]
 
   RETURN databaseArray

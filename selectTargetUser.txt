@@ -7,6 +7,7 @@
 #Database usernames
 constant databaseUsername = 'admin' #These are examples
 constant databasePassword = 'admin'
+constant databaseTable = 'userTbl'
 
 OUTPUT('Use username or surname?')
 tempInput = USERINPUT
@@ -15,7 +16,6 @@ targetQuery = ''
 
 #END INIT VARIABLES
 
-#BEGIN MAIN ROUTINE
 
 database = loadDatabase(databaseUsername, databasePassword)
 
@@ -30,7 +30,7 @@ ENDIF
 targetedUser = getUserFromDatabase(targetQuery)   #This is returned as a map
 OUTPUT targetedUser   #This will return the data from the query as a map (maps can be accessed)
 
-#END MAIN ROUTINE
+#END MAIN PROGRAM
 
 #BEGIN SUBROUTINES
 SUBROUTINE getUserFromDatabase(searchQuery)
@@ -41,16 +41,13 @@ SUBROUTINE getUserFromDatabase(searchQuery)
 
 ENDSUBROUTINE
 
-SUBROUTINE loadDatabase(user, pass) #This is to load into memory,
+SUBROUTINE loadDatabase(user, pass, tbl) #This is to load into memory,
                                      meaning that any changes in the database will not be pulled until finished
   databaseArray = []
 
-  FOR i <- 1 TO database.size()
+  FOR i <- 1 TO DATABASE.tbl.size() THEN
     databaseArray[i] = database[i]
 
   RETURN databaseArray
 ENDSUBROUTINE
 #END SUBROUTINES
-
-
-#END MAIN PROGRAM
