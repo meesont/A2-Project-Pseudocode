@@ -26,8 +26,12 @@ IF choice = 'C' THEN
     scores[i] = USERINPUT
   ENDFOR
 
+  updateScores(scores, database)
+
 
 ELSE IF choice = 'O' THEN
+
+  scorePositions = getLeaderboardPositions(recentScores)
 
 ENDIF
 
@@ -64,6 +68,33 @@ SUBROUTINE getMostRecentScores()
   ENDFOR
 
   RETURN recentScores
+
+ENDSUBROUTINE
+
+SUBROUTINE updateScores(scores, database)
+
+  FOR i <- 1 TO LEN(scores)
+    database.push(scores[i], database[i])
+  ENDFOR
+
+ENDSUBROUTINE
+
+
+SUBROTUINE getLeaderboardPositions(scores)
+
+  FOR i <- 1 TO LEN()
+    FOR j <- (i + 1) TO LEN(scores)
+
+    IF scores[i] > scores[j] THEN
+
+      scores[i], scores[j] = scores[j], scores[i]
+
+    ENDIF
+
+    ENDFOR
+  ENDFOR
+
+  RETURN scores
 
 ENDSUBROUTINE
 
