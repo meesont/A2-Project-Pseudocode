@@ -1,0 +1,11 @@
+#Pseudocode for the Manage User(s) flowchart
+
+#BEGIN MAIN PROGRAM
+
+#BEGIN INIT VARIABLES
+
+constant databaseUsername = 'admin'
+constant databasePassword = 'admin'
+constant databaseTable = 'userTbl'
+
+#END INIT VARIABLES
